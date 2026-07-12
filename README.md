@@ -12,3 +12,6 @@ This project will be a multi agent orchestrated system where multiple agents wil
 
 Analyze:-
 system processes, network traffic, and security logs to identify potential threats and vulnerabilities.
+
+Basic Diagram
+<img src="./docs/images/Basic-Diagram.png"/>
