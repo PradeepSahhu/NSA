@@ -14,4 +14,4 @@ Analyze:-
 system processes, network traffic, and security logs to identify potential threats and vulnerabilities.
 
 Basic Diagram
-<img src="./docs/images/diagram.png"/>
+<img src="./docs/images/SysDesign.png"/>
