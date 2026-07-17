@@ -1,16 +1,14 @@
 {
-  "name": "backend",
+  "name": "network-agent",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "module",
-  "main": "server.ts",
   "scripts": {
     "start": "tsx server.ts",
     "dev": "tsx watch server.ts",
     "llm": "tsx watch ./Orchestrator/orchestrator.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "daemon:dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "daemon:start": "node dist/index.js"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
@@ -20,10 +18,13 @@
   "dependencies": {
     "@langchain/core": "^1.2.3",
     "@langchain/deepseek": "^1.1.5",
-    "express": "^5.2.1",
     "install": "^0.13.0",
     "langchain": "^1.5.3",
     "npm": "^11.18.0",
-    "zod": "^4.4.3"
+    "zod": "^4.4.3",
+    "express": "^5.2.1",
+    "@types/node": "^22.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.0"
   }
 }
