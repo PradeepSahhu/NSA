@@ -4,7 +4,7 @@ Hackathon Page : https://unstop.com/hackathons/cloud-innovation-challenge-jawaha
 
 Tech stack :
 
-Backend : Typescript, PostGSQL
+Backend : Typescript, PostgreSQL, (vectorDB , graphDB)
 UI : Electron (React)
 LLM : Deepseek
 
