@@ -1,0 +1,14 @@
+{
+  "name": "network-agent",
+  "version": "1.0.0",
+"scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "tsx": "^4.23.1",
+    "typescript": "^5.8.3"
+  }
+}
