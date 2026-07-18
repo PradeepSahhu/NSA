@@ -12,6 +12,9 @@ const model = new ChatDeepSeek({
 
 // console.log(res.messages);
 
-const agent = createAgent({ model, tools: ProcessesTools });
+const agent = createAgent({
+  model,
+  tools: ProcessesTools,
+});
 
 export default agent;
