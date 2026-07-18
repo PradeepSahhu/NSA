@@ -8,23 +8,32 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "daemon:dev": "ts-node src/index.ts",
     "build": "tsc",
-    "daemon:start": "node dist/index.js"
+    "daemon:start": "node dist/index.js",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.9.5",
     "tsx": "^4.19.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "@langchain/core": "^1.2.3",
     "@langchain/deepseek": "^1.1.5",
+    "@types/node": "^22.0.0",
+    "express": "^5.2.1",
     "install": "^0.13.0",
     "langchain": "^1.5.3",
     "npm": "^11.18.0",
-    "zod": "^4.4.3",
-    "express": "^5.2.1",
-    "@types/node": "^22.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.0"
+    "typescript": "^5.8.0",
+    "zod": "^4.4.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }
