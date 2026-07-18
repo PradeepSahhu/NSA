@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-cd Backend || exit 1
-npx lint-staged
+(cd Backend && npx lint-staged) || exit 1
+(cd Frontend && npx lint-staged) || exit 1
