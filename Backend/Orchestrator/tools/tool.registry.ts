@@ -1,16 +1,23 @@
-import {
-  getProcesses,
-  getProcessById,
-  IToolFunctionInterface,
-} from "./process.tools.ts";
-import { tool } from "langchain";
+import { getProcesses, getProcessById } from "./process.tools.ts";
+import { blockNetwork, getNetwork } from "./network.tools.ts";
+import { IToolFunctionInterface } from "../utils/Interface/ToolFnType.ts";
+import { Tool, tool } from "langchain";
 import * as z from "zod";
+
+//-------------- type of ToolFunction ------------
 
 type RegisteredTool = IToolFunctionInterface<z.ZodTypeAny, unknown>;
 
-export const ToolRegistry: Record<string, RegisteredTool> = {
+//------------- Tool Registry for Processes Tools -----------
+
+export const ProcessToolRegistry: Record<string, RegisteredTool> = {
   [getProcesses.name]: getProcesses,
   [getProcessById.name]: getProcessById,
+};
+
+export const NetworkToolRegistry: Record<string, RegisteredTool> = {
+  [getNetwork.name]: getNetwork,
+  [blockNetwork.name]: blockNetwork,
 };
 
 export const ToolWrapper = (toolFn: RegisteredTool) => {
@@ -39,13 +46,15 @@ export const ToolWrapper = (toolFn: RegisteredTool) => {
 
 */
 
-export const ProcessesTools = Object.values(ToolRegistry).map((toolFn) =>
+export const ProcessesTools = Object.values(ProcessToolRegistry).map((toolFn) =>
   ToolWrapper(toolFn),
 );
+
+export const NetworkTools = Object.values(NetworkToolRegistry).map((toolFn) => ToolWrapper(toolFn));
 
 /*
 less redable form :)
 
-export const toolsprocesses = Object.values(ToolRegistry).map(ToolWrapper);
+export const toolsprocesses = Object.values(ProcessToolRegistry).map(ToolWrapper);
 
 */

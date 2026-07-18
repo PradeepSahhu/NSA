@@ -1,4 +1,4 @@
-import { ToolFnType } from "../utils/Interface/ToolFnType";
+import { IToolFunctionInterface } from "../utils/Interface/ToolFnType.ts";
 import * as z from "zod";
 // all these will do the api call to get the data and do the action tool -> rest api -> daemon
 
@@ -10,25 +10,8 @@ const GetProcessByIdInputSchema = z.object({
   id: z.string(),
 });
 
-// ------------------ Function type interfaces ----------------
-interface IBaseToolFunctionInterface {
-  name: string;
-  description: string;
-}
-
-export interface IToolFunctionInterface<
-  TSchema extends z.ZodTypeAny,
-  TOutput,
-> extends IBaseToolFunctionInterface {
-  schema: TSchema;
-  execute: ToolFnType<z.infer<TSchema>, TOutput>;
-}
-
 // --------------------- Functions definitions -------------------
-export const getProcesses: IToolFunctionInterface<
-  typeof GetProcessesInputSchema,
-  string
-> = {
+export const getProcesses: IToolFunctionInterface<typeof GetProcessesInputSchema, string> = {
   name: "get_processes",
   description: "",
   schema: GetProcessesInputSchema,
@@ -38,10 +21,7 @@ export const getProcesses: IToolFunctionInterface<
   },
 };
 
-export const getProcessById: IToolFunctionInterface<
-  typeof GetProcessByIdInputSchema,
-  string
-> = {
+export const getProcessById: IToolFunctionInterface<typeof GetProcessByIdInputSchema, string> = {
   name: "get_process_by_id",
   description: "",
   schema: GetProcessByIdInputSchema,
