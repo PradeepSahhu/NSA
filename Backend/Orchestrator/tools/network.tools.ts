@@ -15,20 +15,21 @@ const BlockNetworkInputSchema = z.object({
 // ----------------- Tool Function Definitions ------------
 
 export const getNetwork: IToolFunctionInterface<typeof GetNetworkInputSchema, string> = {
-  name: "",
-  description: "",
+  name: "get_network",
+  description: "To inspect the network traffic of a specific website",
   schema: GetNetworkInputSchema,
   execute: async () => {
     //do api call here
-    return "";
+    return "network error";
   },
 };
 
 export const blockNetwork: IToolFunctionInterface<typeof BlockNetworkInputSchema, boolean> = {
-  name: "",
-  description: "",
+  name: "block_network",
+  description: "To block a certain network website",
   schema: BlockNetworkInputSchema,
   execute: async () => {
+    //do api call here
     return true;
   },
 };
